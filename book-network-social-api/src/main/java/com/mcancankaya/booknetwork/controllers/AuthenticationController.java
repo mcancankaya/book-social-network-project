@@ -1,8 +1,11 @@
 package com.mcancankaya.booknetwork.controllers;
 
 import com.mcancankaya.booknetwork.services.AuthenticationService;
+import com.mcancankaya.booknetwork.services.dtos.auth.AuthenticationRequest;
+import com.mcancankaya.booknetwork.services.dtos.auth.AuthenticationResponse;
 import com.mcancankaya.booknetwork.services.dtos.auth.RegistrationRequest;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.mail.MessagingException;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -20,8 +23,15 @@ public class AuthenticationController {
     @ResponseStatus(HttpStatus.ACCEPTED)
     public ResponseEntity<?> register(
             @RequestBody @Valid RegistrationRequest request
-    ) {
+    ) throws MessagingException {
         authenticationService.register(request);
         return ResponseEntity.accepted().build();
+    }
+
+    @PostMapping("/authenticate")
+    public ResponseEntity<AuthenticationResponse> authenticate(
+            @RequestBody @Valid AuthenticationRequest request
+    ) {
+        return ResponseEntity.ok(authenticationService.authenticate(request));
     }
 }

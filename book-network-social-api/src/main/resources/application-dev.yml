@@ -12,7 +12,7 @@ spring:
       hibernate:
         format_sql: true
     database: postgresql
-    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
   mail:
     host: localhost
     port: 1025
@@ -21,7 +21,7 @@ spring:
     properties:
       mail:
         smtp:
-          trust:"*"
+          trust: "*"
         auth: true
         starttls:
           enable: true
@@ -34,3 +34,8 @@ application:
     jwt:
       secret-key: MAHSEVMAHSEVMAHSEVMAHSEVMAHSEVMAHSEVMAHSEVMAHSEVMAHSEVMAHSEV
       expiration: 8640000
+  mailing:
+    frontend:
+      activation-url: http://localhost:4200/activate-account
+server:
+  port: 8088
