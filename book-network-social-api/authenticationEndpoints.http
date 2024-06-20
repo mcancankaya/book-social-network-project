@@ -1,0 +1,22 @@
+### Register a new user.
+POST http://localhost:8088/api/v1/auth/register
+Content-Type: application/json
+
+{
+"firstName": "Mahmut Can",
+"lastName": "Çankaya",
+"email": "admin@booknetwork.com",
+"password": "admin123"
+}
+
+### Activate Account from email validation code.
+GET http://localhost:8088/api/v1/auth/activate-account?token=630130
+
+### Login to user account.
+POST http://localhost:8088/api/v1/auth/login
+Content-Type: application/json
+
+{
+"email": "admin@booknetwork.com",
+"password": "admin123"
+}
