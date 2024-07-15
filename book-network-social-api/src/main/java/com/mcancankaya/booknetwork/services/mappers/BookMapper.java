@@ -1,8 +1,10 @@
 package com.mcancankaya.booknetwork.services.mappers;
 
 import com.mcancankaya.booknetwork.entities.book.Book;
+import com.mcancankaya.booknetwork.entities.book.BookTransactionHistory;
 import com.mcancankaya.booknetwork.services.dtos.book.BookRequest;
 import com.mcancankaya.booknetwork.services.dtos.book.BookResponse;
+import com.mcancankaya.booknetwork.services.dtos.book.BorrowedBookResponse;
 import org.springframework.stereotype.Service;
 
 
@@ -33,6 +35,18 @@ public class BookMapper {
                 .owner(book.getOwner().fullName())
                 //TODO: implement cover
 
+                .build();
+    }
+
+    public BorrowedBookResponse toBorrowedBookResponse(BookTransactionHistory history) {
+        return BorrowedBookResponse.builder()
+                .id(history.getBook().getId())
+                .title(history.getBook().getTitle())
+                .authorName(history.getBook().getAuthorName())
+                .isbn(history.getBook().getIsbn())
+                .rate(history.getBook().getRate())
+                .returned(history.isReturned())
+                .returnApproved(history.isReturnApproved())
                 .build();
     }
 }

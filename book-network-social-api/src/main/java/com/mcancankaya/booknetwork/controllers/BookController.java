@@ -1,5 +1,6 @@
 package com.mcancankaya.booknetwork.controllers;
 
+import com.mcancankaya.booknetwork.services.dtos.book.BorrowedBookResponse;
 import com.mcancankaya.booknetwork.services.dtos.common.PageResponse;
 import com.mcancankaya.booknetwork.services.BookService;
 import com.mcancankaya.booknetwork.services.dtos.book.BookRequest;
@@ -44,5 +45,31 @@ public class BookController {
             Authentication connectedUser
     ) {
         return ResponseEntity.ok(bookService.findAllByOwner(page, size, connectedUser));
+    }
+
+    @GetMapping("/borrowed")
+    public ResponseEntity<PageResponse<BorrowedBookResponse>> findAllBorrowedByOwner(
+            @RequestParam(name = "page", defaultValue = "0", required = false) int page,
+            @RequestParam(name = "size", defaultValue = "10", required = false) int size,
+            Authentication connectedUser
+    ) {
+        return ResponseEntity.ok(bookService.findAllBorrowedByOwner(page, size, connectedUser));
+    }
+
+    @GetMapping("/returned")
+    public ResponseEntity<PageResponse<BorrowedBookResponse>> findAllReturnedByOwner(
+            @RequestParam(name = "page", defaultValue = "0", required = false) int page,
+            @RequestParam(name = "size", defaultValue = "10", required = false) int size,
+            Authentication connectedUser
+    ) {
+        return ResponseEntity.ok(bookService.findAllReturnedByOwner(page, size, connectedUser));
+    }
+
+    @PatchMapping("/shareable/{bookId}")
+    public ResponseEntity<Integer> updateShareableStatus(
+            @PathVariable(name = "bookId") Integer bookId,
+            Authentication connectedUser
+    ) {
+        return ResponseEntity.ok(bookService.updateShareableStatus(bookId, connectedUser));
     }
 }
