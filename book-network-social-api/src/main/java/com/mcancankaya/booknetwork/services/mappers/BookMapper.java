@@ -1,5 +1,6 @@
 package com.mcancankaya.booknetwork.services.mappers;
 
+import com.mcancankaya.booknetwork.core.utils.FileUtils;
 import com.mcancankaya.booknetwork.entities.book.Book;
 import com.mcancankaya.booknetwork.entities.book.BookTransactionHistory;
 import com.mcancankaya.booknetwork.services.dtos.book.BookRequest;
@@ -33,8 +34,7 @@ public class BookMapper {
                 .archived(book.isArchived())
                 .shareable(book.isShareable())
                 .owner(book.getOwner().fullName())
-                //TODO: implement cover
-
+                .cover(FileUtils.readFileFromLocation(book.getBookCover()))
                 .build();
     }
 

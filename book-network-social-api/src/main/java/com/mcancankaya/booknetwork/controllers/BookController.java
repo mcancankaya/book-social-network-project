@@ -5,12 +5,14 @@ import com.mcancankaya.booknetwork.services.dtos.common.PageResponse;
 import com.mcancankaya.booknetwork.services.BookService;
 import com.mcancankaya.booknetwork.services.dtos.book.BookRequest;
 import com.mcancankaya.booknetwork.services.dtos.book.BookResponse;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("books")
@@ -103,5 +105,16 @@ public class BookController {
             Authentication connectedUser
     ) {
         return ResponseEntity.ok(bookService.approveReturnBorrowBook(bookId, connectedUser));
+    }
+
+    @PostMapping(value = "/cover/{bookId}", consumes = "multipart/form-data")
+    public ResponseEntity<?> uploadCoverPicture(
+            @PathVariable("bookId") Integer bookId,
+            @Parameter()
+            @RequestPart("file") MultipartFile file,
+            Authentication connectedUser
+    ) {
+        bookService.uploadBookCoverPicture(file, connectedUser, bookId);
+        return ResponseEntity.accepted().build();
     }
 }
