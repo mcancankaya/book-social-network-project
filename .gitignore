@@ -1,4 +1,4 @@
-HELP.md
+book-network-social-api/HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
@@ -30,7 +30,7 @@ build/
 !**/src/test/**/build/
 
 ### VS Code ###
-.vscode/
+book-network-ui/.vscode/
 
 # See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
@@ -41,7 +41,7 @@ build/
 /bazel-out
 
 # Node
-/node_modules
+book-network-ui/node_modules
 npm-debug.log
 yarn-error.log
 
