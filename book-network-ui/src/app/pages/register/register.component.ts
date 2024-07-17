@@ -25,7 +25,7 @@ export class RegisterComponent {
     }).subscribe(
       {
         next: () => {
-          this.router.navigate(['activate-acoount'])
+          this.router.navigate(['activate-account'])
         },
         error: (err) => {
           this.errorMessage = err.error.validationErrors;
