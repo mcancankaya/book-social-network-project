@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'book-network-ui';
+
+  constructor(private translateService: TranslateService) {
+    this.translateService.addLangs(['en', 'tr'])
+    const browserLanguage = this.translateService.getBrowserLang();
+    this.translateService.setDefaultLang(browserLanguage?.match(/en|tr/) ? browserLanguage : 'en')
+  }
+
+  switchLanguage(language: string) {
+    this.translateService.use(language);
+  }
 }

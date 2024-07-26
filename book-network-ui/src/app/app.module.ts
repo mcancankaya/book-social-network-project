@@ -10,6 +10,13 @@ import {RegisterComponent} from './pages/register/register.component';
 import {ActivateAccountComponent} from './pages/activate-account/activate-account.component';
 import {CodeInputModule} from "angular-code-input";
 import {HttpTokenInterceptor} from "./services/interceptor/http-token.interceptor";
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
@@ -23,7 +30,15 @@ import {HttpTokenInterceptor} from "./services/interceptor/http-token.intercepto
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    CodeInputModule
+    CodeInputModule,
+    BrowserAnimationsModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      }
+    })
   ],
   providers: [
     HttpClient,

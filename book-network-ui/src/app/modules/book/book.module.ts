@@ -10,6 +10,9 @@ import {RatingComponent} from './components/rating/rating.component';
 import {MyBooksComponent} from './pages/my-books/my-books.component';
 import {ManageBookComponent} from './pages/manage-book/manage-book.component';
 import {FormsModule} from "@angular/forms";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {TranslateModule} from "@ngx-translate/core";
 
 
 @NgModule({
@@ -22,11 +25,14 @@ import {FormsModule} from "@angular/forms";
     MyBooksComponent,
     ManageBookComponent
   ],
-  imports: [
-    CommonModule,
-    BookRoutingModule,
-    FormsModule
-  ]
+    imports: [
+        CommonModule,
+        BookRoutingModule,
+        FormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        TranslateModule
+    ]
 })
 export class BookModule {
 }
