@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-menu',
@@ -6,6 +7,7 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
+
   ngOnInit(): void {
     const linkColor = document.querySelectorAll('.nav-link');
     linkColor.forEach((link) => {
@@ -19,7 +21,14 @@ export class MenuComponent implements OnInit {
     })
   }
 
+  constructor(private translateService: TranslateService) {
+  }
+
   logout() {
 
+  }
+
+  switchLanguage(language: string) {
+    this.translateService.use(language);
   }
 }

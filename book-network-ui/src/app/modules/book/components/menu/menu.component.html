@@ -40,7 +40,18 @@
         <span>Welcome</span>
         <span class="text-capitalize fw-bold">mcancankaya</span>
         <button class="btn btn-link" type="button" (click)="logout()"><i class="fas fa-door-open"></i></button>
+
       </form>
+      <div style="text-align: right; padding: 10px;">
+        <button mat-button [matMenuTriggerFor]="menu">
+          <i class="fa-solid fa-language"></i>
+          {{ 'LANGUAGE' | translate }}
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="switchLanguage('en')">English</button>
+          <button mat-menu-item (click)="switchLanguage('tr')">Türkçe</button>
+        </mat-menu>
+      </div>
     </div>
   </div>
 </nav>

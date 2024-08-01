@@ -34,15 +34,22 @@ export class MyBooksComponent implements OnInit {
   }
 
   archiveBook(book: BookResponse) {
-
+    this.bookService.updateArchivedStatus({
+      'bookId': book.id as number,
+    }).subscribe({
+        next: () => {
+          book.archived = !book.archived;
+        }
+      }
+    )
   }
 
   shareBook(book: BookResponse) {
     this.bookService.updateShareableStatus({
-      'bookId':book.id as number
+      'bookId': book.id as number
     }).subscribe({
-      next:()=>{
-        book.shareable =!book.shareable;
+      next: () => {
+        book.shareable = !book.shareable;
       }
     })
   }

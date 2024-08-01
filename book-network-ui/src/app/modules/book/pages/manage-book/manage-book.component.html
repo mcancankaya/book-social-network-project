@@ -1,5 +1,5 @@
 <div class="p-2">
-  <h2>{{ "HELLO"| translate }}</h2>
+  <h2>{{ "BOOK_MANAGEMENT"| translate }}</h2>
   <hr>
   <div class="alert alert-danger mt-2" role="alert" *ngIf="errorMsg.length">
     <p class="p-0 m-0" *ngFor="let msg of errorMsg">{{ msg }}</p>
@@ -15,40 +15,32 @@
     <div class="col-9">
       <form class="row g-3 m-2">
         <mat-form-field>
-          <mat-label>Kitap Başlığı</mat-label>
-          <input matInput>
+          <mat-label>{{ 'FORM_BOOK_TITLE' | translate }}</mat-label>
+          <input matInput [(ngModel)]="bookRequest.title" name="title" type="text" id="title">
         </mat-form-field>
-        <div class="col-12">
-          <label for="title" class="form-label">Title</label>
-          <input [(ngModel)]="bookRequest.title" name="title" type="text" class="form-control" id="title"
-                 placeholder="Book title">
-        </div>
-        <div class="col-6">
-          <label for="author" class="form-label">Author Name</label>
-          <input [(ngModel)]="bookRequest.authorName" name="authorName" type="text" class="form-control" id="author"
-                 placeholder="Author Name">
-        </div>
-        <div class="col-6">
-          <label for="isbn" class="form-label">ISBN</label>
-          <input [(ngModel)]="bookRequest.isbn" name="isbn" type="text" class="form-control" id="isbn"
-                 placeholder="ISBN">
-        </div>
-        <div class="col-12">
-          <label for="synopsis" class="form-label">Synopsis</label>
-          <textarea [(ngModel)]="bookRequest.synopsis" name="synopsis" rows="4" class="form-control" id="synopsis"
-                    placeholder="Synopsis"></textarea>
-        </div>
-        <div class="col-12">
-          <input [(ngModel)]="bookRequest.shareable" name="shareable" type="checkbox" class="form-check-input"
-                 id="shareme">
-          <label class="form-check-label" for="shareme">Yes, make this book shareable</label>
-        </div>
+        <mat-form-field>
+          <mat-label>{{ 'FORM_AUTHOR_NAME' | translate }}</mat-label>
+          <input matInput [(ngModel)]="bookRequest.authorName" name="authorName" type="text" id="authorName">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ 'FORM_ISBN' | translate }}</mat-label>
+          <input matInput [(ngModel)]="bookRequest.isbn" name="isbn" type="text" id="isbn">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ 'FORM_SYNOPSIS' | translate }}</mat-label>
+          <textarea matInput [(ngModel)]="bookRequest.synopsis" name="synopsis" rows="4" id="synopsis"></textarea>
+        </mat-form-field>
+
+        <mat-checkbox [(ngModel)]="bookRequest.shareable" name="shareable"
+                      id="shareme">{{ 'FORM_IS_SHAREABLE' | translate }}
+        </mat-checkbox>
+
         <div class="d-flex justify-content-end gap-2 col-12">
           <button (click)="saveBook()" type="submit" class="btn btn-outline-primary">
-            <i class="fas fa-save"></i>&nbsp;Save
+            <i class="fas fa-save"></i>&nbsp;{{ 'BUTTON_SAVE' | translate }}
           </button>
           <a routerLink="/books/my-books" class="btn btn-outline-danger">
-            <i class="fas fa-cancel"></i>&nbsp;Cancel
+            <i class="fas fa-cancel"></i>&nbsp;{{ 'BUTTON_CANCEL' | translate }}
           </a>
         </div>
       </form>

@@ -26,6 +26,7 @@
     "@ngx-translate/http-loader": "^8.0.0",
     "angular-code-input": "^2.0.0",
     "bootstrap": "^5.3.3",
+    "flag-icons": "^7.2.3",
     "ng-openapi-gen": "^0.51.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
