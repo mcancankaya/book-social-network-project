@@ -23,7 +23,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    ActivateAccountComponent
+    ActivateAccountComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +38,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient],
       }
-    })
+    }),
   ],
   providers: [
     HttpClient,

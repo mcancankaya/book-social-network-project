@@ -8,6 +8,14 @@
   "FORM_AUTHOR_NAME": "Author Name",
   "FORM_ISBN": "ISBN",
   "FORM_SYNOPSIS": "Book Synopsis",
-  "FORM_IS_SHAREABLE": "Yes, make this book shareable"
+  "FORM_IS_SHAREABLE": "Yes, make this book shareable",
+  "RETURN_AND_SHARE_FEEDBACK": "Return and Share Feedback",
+  "FEEDBACK": "Feedback",
+  "BOOK_TITLE": "Title",
+  "BOOK_AUTHOR": "Author",
+  "BOOK_ISBN": "ISBN",
+  "BOOK_RATE": "Rating",
+  "RATE_AND_RETURN_BOOK": "Rate and Return",
+  "RETURN_BOOK": "Return Book"
 }
 

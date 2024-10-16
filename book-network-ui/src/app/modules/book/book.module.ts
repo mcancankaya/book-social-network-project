@@ -19,6 +19,8 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {MatCheckboxModule} from "@angular/material/checkbox";
+import { BorrowedBookListComponent } from './pages/borrowed-book-list/borrowed-book-list.component';
+import {MatTableModule} from "@angular/material/table";
 
 
 @NgModule({
@@ -29,22 +31,24 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     BookCardComponent,
     RatingComponent,
     MyBooksComponent,
-    ManageBookComponent
+    ManageBookComponent,
+    BorrowedBookListComponent,
   ],
-  imports: [
-    CommonModule,
-    BookRoutingModule,
-    FormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    TranslateModule,
-    MatMenuModule,
-    MatSelectModule,
-    MatButtonToggleModule,
-    MatIconModule,
-    MatButtonModule,
-    MatCheckboxModule
-  ]
+    imports: [
+        CommonModule,
+        BookRoutingModule,
+        FormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        TranslateModule,
+        MatMenuModule,
+        MatSelectModule,
+        MatButtonToggleModule,
+        MatIconModule,
+        MatButtonModule,
+        MatCheckboxModule,
+        MatTableModule
+    ]
 })
 export class BookModule {
 }

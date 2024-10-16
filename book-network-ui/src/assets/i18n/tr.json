@@ -1,3 +1,9 @@
 {
-  "HELLO": "Merhaba"
+  "HELLO": "Merhaba",
+  "FORM_BOOK_TITLE": "Kitap Başlığı",
+  "FORM_AUTHOR_NAME": "Yazar Adı",
+  "BOOK_TITLE": "Kitap Başlığı",
+  "BOOK_AUTHOR": "Yazar",
+  "BOOK_ISBN": "ISBN",
+  "BOOK_RATE": "Puan"
 }
