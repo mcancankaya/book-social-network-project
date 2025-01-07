@@ -21,6 +21,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import { BorrowedBookListComponent } from './pages/borrowed-book-list/borrowed-book-list.component';
 import {MatTableModule} from "@angular/material/table";
+import { ReturnBooksComponent } from './pages/return-books/return-books.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import {MatTableModule} from "@angular/material/table";
     MyBooksComponent,
     ManageBookComponent,
     BorrowedBookListComponent,
+    ReturnBooksComponent,
   ],
     imports: [
         CommonModule,

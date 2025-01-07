@@ -2,11 +2,10 @@
 POST http://localhost:8088/api/v1/auth/register
 Content-Type: application/json
 
-{
-"firstName": "Mahmut Can",
-"lastName": "Çankaya",
-"email": "admin@booknetwork.com",
-"password": "admin123"
+{"firstName": "Mahmut Can",
+  "lastName": "Çankaya",
+  "email": "admin@booknetwork.com",
+  "password": "admin123"
 }
 
 ### Activate Account from email validation code.
